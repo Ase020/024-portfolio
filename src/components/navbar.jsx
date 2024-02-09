@@ -3,7 +3,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 import { NavLink } from ".";
+import {
+  bottomVariants,
+  centerVariants,
+  listItemVariant,
+  listVariants,
+  topVariants,
+} from "./navVariants";
 
 const menuList = [
   { url: "/", title: "Home" },
@@ -14,8 +23,9 @@ const menuList = [
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
+
   return (
-    <div className="h-full text-xl flex items-center border justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+    <div className="h-full text-xl flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
       {/* navlinks */}
       <div className="hidden md:flex gap-4 items-center w-1/3">
         {menuList.map(({ url, title }) => (
@@ -56,22 +66,39 @@ const Navbar = () => {
 
       <div className="md:hidden">
         <button
-          className="flex flex-col justify-between h-8 border"
+          className="flex flex-col justify-between h-8"
           onClick={() => setNavOpen((prev) => !prev)}
         >
-          <div className="w-10 h-1 bg-black rounded" />
-          <div className="w-10 h-1 bg-black rounded" />
-          <div className="w-10 h-1 bg-black rounded" />
+          <motion.div
+            variants={topVariants}
+            animate={navOpen ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded origin-left"
+          ></motion.div>
+          <motion.div
+            variants={centerVariants}
+            animate={navOpen ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded"
+          ></motion.div>
+          <motion.div
+            variants={bottomVariants}
+            animate={navOpen ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded origin-left"
+          ></motion.div>
         </button>
 
         {navOpen && (
-          <div className="absolute top-24 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl">
+          <motion.div
+            variants={listVariants}
+            initial="closed"
+            animate="opened"
+            className="absolute z-10 top-24 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl"
+          >
             {menuList.map(({ url, title }) => (
-              <Link key={title} href={url}>
-                {title}
-              </Link>
+              <motion.div variants={listItemVariant} key={title}>
+                <Link href={url}>{title}</Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
