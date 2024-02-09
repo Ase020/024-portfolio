@@ -15,10 +15,10 @@ import {
 } from "./navVariants";
 
 const menuList = [
-  { url: "/", title: "Home" },
-  { url: "/about", title: "About" },
-  { url: "/portfolio", title: "Portfolio" },
-  { url: "/contact", title: "Contact" },
+  { id: 1, url: "/", title: "Home" },
+  { id: 2, url: "/about", title: "About" },
+  { id: 3, url: "/portfolio", title: "Portfolio" },
+  { id: 4, url: "/contact", title: "Contact" },
 ];
 
 const Navbar = () => {
@@ -28,8 +28,8 @@ const Navbar = () => {
     <div className="h-full text-xl flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
       {/* navlinks */}
       <div className="hidden md:flex gap-4 items-center w-1/3">
-        {menuList.map(({ url, title }) => (
-          <NavLink key={title} title={title} url={url} />
+        {menuList.map(({ id, url, title }) => (
+          <NavLink key={id} title={title} url={url} />
         ))}
       </div>
 
@@ -73,17 +73,17 @@ const Navbar = () => {
             variants={topVariants}
             animate={navOpen ? "opened" : "closed"}
             className="w-10 h-1 bg-black rounded origin-left"
-          ></motion.div>
+          />
           <motion.div
             variants={centerVariants}
             animate={navOpen ? "opened" : "closed"}
             className="w-10 h-1 bg-black rounded"
-          ></motion.div>
+          />
           <motion.div
             variants={bottomVariants}
             animate={navOpen ? "opened" : "closed"}
             className="w-10 h-1 bg-black rounded origin-left"
-          ></motion.div>
+          />
         </button>
 
         {navOpen && (
@@ -91,10 +91,10 @@ const Navbar = () => {
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute z-10 top-24 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl"
+            className="absolute z-10 top-16 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl"
           >
-            {menuList.map(({ url, title }) => (
-              <motion.div variants={listItemVariant} key={title}>
+            {menuList.map(({ id, url, title }) => (
+              <motion.div variants={listItemVariant} key={id}>
                 <Link href={url}>{title}</Link>
               </motion.div>
             ))}
