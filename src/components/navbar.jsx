@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { NavLink } from ".";
 
 const menuList = [
   { url: "/", title: "Home" },
@@ -14,13 +15,11 @@ const menuList = [
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
   return (
-    <div className="h-full flex items-center border justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+    <div className="h-full text-xl flex items-center border justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
       {/* navlinks */}
       <div className="hidden md:flex gap-4 items-center w-1/3">
         {menuList.map(({ url, title }) => (
-          <Link key={title} href={url}>
-            {title}
-          </Link>
+          <NavLink key={title} title={title} url={url} />
         ))}
       </div>
 
@@ -38,20 +37,20 @@ const Navbar = () => {
       </div>
 
       {/* social links */}
-      <div className="hidden md:flex items-center gap-4 w-1/3">
+      <div className="hidden md:flex items-center gap-4 w-1/3 justify-end">
         <a
           href="https://github.com/Ase020"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src="/github.png" alt="github" width={24} height={24} />
+          <Image src="/github.png" alt="github" width={28} height={28} />
         </a>
         <a
           href="https://www.linkedin.com/in/felix-olali"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src="/linkedin.png" alt="linkedin" width={24} height={24} />
+          <Image src="/linkedin.png" alt="linkedin" width={28} height={28} />
         </a>
       </div>
 
