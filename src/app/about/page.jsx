@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useInView, useScroll } from "framer-motion";
 
 import { skills } from "./data";
 import { Brain } from "@/components";
@@ -10,6 +10,19 @@ const About = () => {
   const containerRef = useRef();
 
   const { scrollYProgress } = useScroll({ container: containerRef });
+
+  const skillRef = useRef();
+  const isSkillRefInView = useInView(skillRef, {
+    once: true,
+    margin: "-100px",
+  });
+
+  const experienceRef = useRef();
+  const isExperienceRefInView = useInView(experienceRef, {
+    once: true,
+    margin: "-100px",
+  });
+
   return (
     <motion.div
       className="h-full"
@@ -75,14 +88,26 @@ const About = () => {
           </div>
 
           {/* Skills */}
-          <div className="flex flex-col gap-12 justify-center">
-            <h1 className="uppercase font-bold text-2xl">skills</h1>
+          <div className="flex flex-col gap-12 justify-center" ref={skillRef}>
+            <motion.h1
+              className="uppercase font-bold text-2xl"
+              initial={{ x: "-600px" }}
+              animate={isSkillRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+            >
+              skills
+            </motion.h1>
 
-            <div className="flex gap-4 flex-wrap">
+            <motion.div
+              className="flex gap-4 flex-wrap"
+              initial={{ x: "-600px" }}
+              animate={isSkillRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.5 }}
+            >
               {skills.map(({ id, skill }) => (
                 <Skill key={id} skill={skill} />
               ))}
-            </div>
+            </motion.div>
 
             <motion.svg
               initial={{ opacity: 0.2, y: 0 }}
@@ -109,10 +134,25 @@ const About = () => {
           </div>
 
           {/* Experience  */}
-          <div className="flex flex-col gap-12 justify-center pb-36">
-            <h1 className="uppercase font-bold text-2xl">Experience</h1>
+          <div
+            className="flex flex-col gap-12 justify-center pb-36"
+            ref={experienceRef}
+          >
+            <motion.h1
+              className="uppercase font-bold text-2xl"
+              initial={{ x: "-600px" }}
+              animate={isExperienceRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+            >
+              Experience
+            </motion.h1>
 
-            <div className="">
+            <motion.div
+              className=""
+              initial={{ x: "-600px" }}
+              animate={isExperienceRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.5 }}
+            >
               {/* EXPERIENCE LIST ITEM */}
               <div className="flex justify-between h-48">
                 {/* LEFT */}
@@ -209,7 +249,7 @@ const About = () => {
                 {/* RIGHT */}
                 <div className="w-1/3 "></div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
