@@ -3,6 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import { skills } from "./data";
+
 const About = () => {
   return (
     <motion.div
@@ -11,8 +13,8 @@ const About = () => {
       animate={{ y: 0 }}
       transition={{ duration: 1 }}
     >
-      <div className="">
-        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64">
+      <div className="h-full overflow-scroll lg:flex">
+        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2">
           {/* Biography */}
           <div className="flex flex-col gap-12 justify-center">
             <h1 className="uppercase font-bold text-2xl">About me</h1>
@@ -103,10 +105,111 @@ const About = () => {
           </div>
 
           {/* Experience  */}
-          <div className="">Experience</div>
+          <div className="flex flex-col gap-12 justify-center pb-36">
+            <h1 className="uppercase font-bold text-2xl">Experience</h1>
+
+            <div className="">
+              {/* EXPERIENCE LIST ITEM */}
+              <div className="flex justify-between h-48">
+                {/* LEFT */}
+                <div className="w-1/3 ">
+                  {/* JOB TITLE */}
+                  <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
+                    Senior JavaScript Engineer
+                  </div>
+                  {/* JOB DESC */}
+                  <div className="p-3 text-sm italic">
+                    I led web development, offering expertise in JavaScript
+                    frameworks.{" "}
+                  </div>
+                  {/* JOB DATE */}
+                  <div className="p-3 text-red-400 text-sm font-semibold">
+                    2024 - Present
+                  </div>
+                  {/* JOB COMPANY */}
+                  <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
+                    Apple
+                  </div>
+                </div>
+                {/* CENTER */}
+                <div className="w-1/6 flex justify-center">
+                  {/* LINE */}
+                  <div className="w-1 h-full bg-gray-600 rounded relative">
+                    {/* LINE CIRCLE */}
+                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
+                  </div>
+                </div>
+                {/* RIGHT */}
+                <div className="w-1/3 "></div>
+              </div>
+
+              {/* EXPERIENCE LIST ITEM */}
+              <div className="flex justify-between h-48">
+                {/* LEFT */}
+                <div className="w-1/3 "></div>
+                {/* CENTER */}
+                <div className="w-1/6 flex justify-center">
+                  {/* LINE */}
+                  <div className="w-1 h-full bg-gray-600 rounded relative">
+                    {/* LINE CIRCLE */}
+                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
+                  </div>
+                </div>
+                {/* RIGHT */}
+                <div className="w-1/3 ">
+                  {/* JOB TITLE */}
+                  <div className="bg-white p-3 font-semibold rounded-b-lg rounded-e-lg">
+                    Senior React Developer
+                  </div>
+                  {/* JOB DESC */}
+                  <div className="p-3 text-sm italic">
+                    I spearheaded React-based application development,
+                    leveraging advanced skills.{" "}
+                  </div>
+                  {/* JOB DATE */}
+                  <div className="p-3 text-red-400 text-sm font-semibold">
+                    2019 - 2024{" "}
+                  </div>
+                  {/* JOB COMPANY */}
+                  <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
+                    Microsoft
+                  </div>
+                </div>
+              </div>
+              {/* EXPERIENCE LIST ITEM */}
+              <div className="flex justify-between h-48">
+                {/* LEFT */}
+                <div className="w-1/3 ">
+                  {/* JOB TITLE */}
+                  <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
+                    Freelancer{" "}
+                  </div>
+                  {/* JOB DESC */}
+                  <div className="p-3 text-sm italic">
+                    I provided web solutions, applying a range of technologies
+                    to address client requirements.{" "}
+                  </div>
+                  {/* JOB DATE */}
+                  <div className="p-3 text-red-400 text-sm font-semibold">
+                    2010 - 2019{" "}
+                  </div>
+                </div>
+                {/* CENTER */}
+                <div className="w-1/6 flex justify-center">
+                  {/* LINE */}
+                  <div className="w-1 h-full bg-gray-600 rounded relative">
+                    {/* LINE CIRCLE */}
+                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
+                  </div>
+                </div>
+                {/* RIGHT */}
+                <div className="w-1/3 "></div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="hidden"></div>
+        <div className="hidden lg:block w-1/3 xl:w-1/2"></div>
       </div>
     </motion.div>
   );
@@ -121,78 +224,3 @@ const Skill = ({ skill }) => {
     </div>
   );
 };
-
-const skills = [
-  {
-    id: 1,
-    skill: "JavaScript",
-  },
-  {
-    id: 2,
-    skill: "TypeScript",
-  },
-  {
-    id: 3,
-    skill: "React.js",
-  },
-  {
-    id: 4,
-    skill: "Next.js",
-  },
-  {
-    id: 5,
-    skill: "SCSS",
-  },
-  {
-    id: 6,
-    skill: "Tailwind CSS",
-  },
-  {
-    id: 7,
-    skill: "Ruby on Rails",
-  },
-  {
-    id: 17,
-    skill: "Node.js",
-  },
-  {
-    id: 8,
-    skill: "Express.js",
-  },
-  {
-    id: 9,
-    skill: "Git",
-  },
-  {
-    id: 10,
-    skill: "Figma",
-  },
-  {
-    id: 11,
-    skill: "Framer Motion",
-  },
-  {
-    id: 12,
-    skill: "PostgreSQL",
-  },
-  {
-    id: 13,
-    skill: "MySQL",
-  },
-  {
-    id: 14,
-    skill: "MongoDB",
-  },
-  {
-    id: 15,
-    skill: "Three.js",
-  },
-  {
-    id: 16,
-    skill: "Docker",
-  },
-  {
-    id: 18,
-    skill: "Postman",
-  },
-];
