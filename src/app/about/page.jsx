@@ -69,7 +69,38 @@ const About = () => {
           </div>
 
           {/* Skills */}
-          <div className="">Skills</div>
+          <div className="flex flex-col gap-12 justify-center">
+            <h1 className="uppercase font-bold text-2xl">skills</h1>
+
+            <div className="flex gap-4 flex-wrap">
+              {skills.map(({ id, skill }) => (
+                <Skill key={id} skill={skill} />
+              ))}
+            </div>
+
+            <motion.svg
+              initial={{ opacity: 0.2, y: 0 }}
+              animate={{ opacity: 1, y: "10px" }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              width={50}
+              height={50}
+            >
+              <path
+                d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z"
+                stroke="#000000"
+                strokeWidth="1"
+              ></path>
+              <path d="M12 6V14" stroke="#000000" strokeWidth="1"></path>
+              <path
+                d="M15 11L12 14L9 11"
+                stroke="#000000"
+                strokeWidth="1"
+              ></path>
+            </motion.svg>
+          </div>
 
           {/* Experience  */}
           <div className="">Experience</div>
@@ -82,3 +113,86 @@ const About = () => {
 };
 
 export default About;
+
+const Skill = ({ skill }) => {
+  return (
+    <div className="rounded p-2 text-sm cursor-pointer bg-black text-white transition-all duration-300 ease-in hover:bg-white hover:text-black">
+      {skill}
+    </div>
+  );
+};
+
+const skills = [
+  {
+    id: 1,
+    skill: "JavaScript",
+  },
+  {
+    id: 2,
+    skill: "TypeScript",
+  },
+  {
+    id: 3,
+    skill: "React.js",
+  },
+  {
+    id: 4,
+    skill: "Next.js",
+  },
+  {
+    id: 5,
+    skill: "SCSS",
+  },
+  {
+    id: 6,
+    skill: "Tailwind CSS",
+  },
+  {
+    id: 7,
+    skill: "Ruby on Rails",
+  },
+  {
+    id: 17,
+    skill: "Node.js",
+  },
+  {
+    id: 8,
+    skill: "Express.js",
+  },
+  {
+    id: 9,
+    skill: "Git",
+  },
+  {
+    id: 10,
+    skill: "Figma",
+  },
+  {
+    id: 11,
+    skill: "Framer Motion",
+  },
+  {
+    id: 12,
+    skill: "PostgreSQL",
+  },
+  {
+    id: 13,
+    skill: "MySQL",
+  },
+  {
+    id: 14,
+    skill: "MongoDB",
+  },
+  {
+    id: 15,
+    skill: "Three.js",
+  },
+  {
+    id: 16,
+    skill: "Docker",
+  },
+  {
+    id: 18,
+    skill: "Postman",
+  },
+];
